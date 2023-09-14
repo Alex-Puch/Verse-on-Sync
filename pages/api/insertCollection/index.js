@@ -1,9 +1,6 @@
 import connectDB from '../../../middleware/mongodb';
 import VerifiedSolanaCollection from '../../../models/VerifiedSolanaCollection';
 
-
-// "https://i.imgur.com/JtbLBBC.jpg"
-
 const collectionExample = {
     unique_name: "Solana Droid Business",
     description: "SDB is a collection of 5,000 uniquely generated 24-bit droids living on the Solana blockchain.",

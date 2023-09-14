@@ -1,16 +1,6 @@
 
 const axios = require('axios');
 
-const getMetadata = async (tokenAddress) => {
-  const metadataPDA = await Metadata.getPDA(tokenAddress);
-  const mintAccInfo = await connection.getAccountInfo(metadataPDA);
-
-  const {
-    data: { data: metadata }
-  } = Metadata.from(new Account(tokenAddress, mintAccInfo));
-  return metadata;
-};
-
 
 async function isNFT(mintAddy){
     var myList = [mintAddy];
@@ -39,9 +29,6 @@ async function isNFT(mintAddy){
 
     return isAnNft;
 }
-
-//
-
 
 async function getNFTlist (pk) {
 
@@ -91,20 +78,3 @@ export default async function handler(req, res) {
     return res.status(200).json({myNftList});
   
 }
-
-
-// export default async function handler(req, res) {
-//   var pk = req.query.walletPK;
-//   var myNftList = [];
-//   var tokensValue = await getNFTlist(pk);
-//   for (const element of tokensValue){
-//       var myTokenData = element.account.data.parsed.info;
-//       if(myTokenData.tokenAmount.amount === '1' && myTokenData.tokenAmount.decimals === 0 && myTokenData.tokenAmount.uiAmount === 1 && myTokenData.tokenAmount.uiAmountString === '1' ){
-//         myNftList.push(myTokenData.mint);
-//       };
-//   };
-//   console.log(myNftList);
-//   console.log(myNftList)
-//   return res.status(200).json({myNftList});
-
-// }

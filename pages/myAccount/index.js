@@ -183,23 +183,6 @@ export default function Home(props) {
                     <Button sx={{p:1, m:1, minWidth:"180px"}} variant="contained" onClick={signOut}>Logout</Button>
                   </Stack>
               }              
-           
-          
-          
-
-        
-        {/* {!phantom && <p className={styles.description}>This sample requires Phantom Wallet</p>}
-
-        {status === 'unauthenticated' && <button onClick={loginDiscord}>Login with Discord</button> }
-
-        {phantom && status === 'unauthenticated' && <button onClick={loginPanthom}>Login with Phantom</button> }
-
-        {phantom && status === 'authenticated' && 
-          <>
-           <p className={styles.description}> Welcome {session?.user?.name}</p>
-           <button onClick={signOut}>Logout</button>
-          </> 
-        } */}
 
         {!loading && session?.user?.id && 
           <Box>
