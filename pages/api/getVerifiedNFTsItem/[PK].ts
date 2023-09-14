@@ -1,12 +1,5 @@
 import {MongoClient} from 'mongodb';
 
-
-
-interface metadata{
-    name: string;
-    image: string;
-}
-
 interface coleccion {
     coleccionID: string,
     coleccionName: string,
@@ -16,12 +9,6 @@ interface coleccion {
         image: string
     }]
 }
-
-
-
-
-
-
 
 export default async function handler(req, res) {
 
@@ -64,8 +51,3 @@ export default async function handler(req, res) {
     
     return res.status(200).json({verfiedNFTlist});
 }
-
-
-
-
-
