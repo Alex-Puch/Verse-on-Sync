@@ -75,63 +75,6 @@ const getMetadata = async (tokenAddress) => {
     return metadata;
   };
 
-
-// const handler = async (req, res) => {
-
-//     const session = req.body.session.user;
-//     var myUser;
-//     if(session.provider === 'discord'){
-//         myUser = await User.findOne({discordId: session.id});
-//     }else{
-//         var myWallet = await Wallet.findOner({publicKey: session.id});
-//         myUser = await User.findOne({_id: ObjectId(myWallet.owner)})
-//     }
-
-//     var inputList = [];
-//     for(const pk of myUser.solWallets){
-//         const metResponse = await fetch(process.env.BASE_URL+'api/getNftList/'+pk);
-//         const resData = await metResponse.json();
-//         console.log(resData);
-//         if(resData){
-//             resData.myNftList.forEach(elem =>{
-//                 inputList.push(elem);
-//             })
-//         }   
-        
-//     }
-    
-    
-//     const verfiedNFTlist: coleccion[] = [];
-    
-//     for(const input of inputList){
-//         var verifiedNft = await VerifiedSolanaNft.findOne({mint: input});
-        
-//         if(verifiedNft){
-            
-//             var foundColection = verifiedNft.collectionId.toString();
-//             var alreadyAddedColection = verfiedNFTlist.find(col => col.coleccionID === foundColection);
-//             if (alreadyAddedColection){
-//                 var oldIndex = verfiedNFTlist.indexOf(alreadyAddedColection);
-//                 alreadyAddedColection.metadata.push({name: verifiedNft.metadataName, image: verifiedNft.metadataImg });
-//                 verfiedNFTlist.splice(oldIndex,1,alreadyAddedColection);
-//             }else{
-//                 var dbColection = await VerifiedSolanaCollection.findOne({_id : ObjectId(foundColection)});
-//                 var myMetadata = {name: verifiedNft.metadataName, image: verifiedNft.metadataImg };
-//                 var newCollection: coleccion = {
-//                     coleccionID: dbColection.id,
-//                     coleccionName: dbColection.unique_name,
-//                     descripcion: dbColection.description,
-//                     metadata:[myMetadata]
-
-//                 }
-//                 verfiedNFTlist.push(newCollection);
-//             }   
-//         }
-//     }
-    
-//     return res.status(200).json({verfiedNFTlist});
-// }
-
 const handler = async (req, res) => {
 
     const session = req.body.session.user;
